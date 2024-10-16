@@ -45,6 +45,12 @@ public class Main {
             return;
         }
         sbs.settleBill(gid);
+        System.out.println("Is all bills are settled?");
+        System.out.println("YES- Y | NO- N");
+        char ch=sc.next().charAt(0);
+        if(ch=='Y'|| ch=='y')
+            sbs.setBalanceZero(gid);
+
     }
 
     private static void viewTransactions(Scanner sc, SplitBillService sbs) {

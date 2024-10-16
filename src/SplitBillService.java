@@ -312,6 +312,19 @@ public class SplitBillService {
         return  false;
 
     }
+    public void setBalanceZero(int gid){
+        String query="UPDATE group_balances SET balance=? where groupid=?;";
+        try(Connection con=DBConnection.getConnection();
+            PreparedStatement st=con.prepareStatement(query);){
+            st.setInt(1,0);
+            st.setInt(2,gid);
+            int cnt=st.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+
+        }
+    }
 
 
 
